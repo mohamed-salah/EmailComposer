@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.badrit.EmailComposer"
+    version="0.1.0">
+    <name>EmailComposer</name>
+    <description>Cordova EmailComposer Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,EmailComposer</keywords>
+
+
+    <js-module src="www/EmailComposer.js" name="EmailComposer">
+        <clobbers target="navigator.EmailComposer" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EmailComposer">
+                <param name="android-package" value="com.badrit.EmailComposer.EmailComposer"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/EmailComposer.java" target-dir="src/com/badrit/EmailComposer/" />
+
+    </platform>
+
+</plugin>
