@@ -5,11 +5,11 @@ function EmailComposer() {
 }
 
 EmailComposer.ComposeResultType = {
-    Cancelled:0,
-    Saved:1,
-    Sent:2,
-    Failed:3,
-    NotSent:4
+Cancelled:0,
+Saved:1,
+Sent:2,
+Failed:3,
+NotSent:4
 }
 
 
@@ -17,7 +17,6 @@ EmailComposer.ComposeResultType = {
 // showEmailComposer : all args optional
 
 EmailComposer.prototype.showEmailComposer = function(subject,body,toRecipients,ccRecipients,bccRecipients,bIsHTML,attachments) {
-	console.log("****************************AVVIATO");
 	var args = {};
 	if(toRecipients)
 		args.toRecipients = toRecipients;
@@ -47,7 +46,6 @@ EmailComposer.prototype._didFinishWithResult = function(res) {
 }
 
 cordova.addConstructor(function()  {
-	console.log("****************************");
 					   if(!window.plugins)
 					   {
 					   window.plugins = {};

@@ -26,4 +26,16 @@
 
     </platform>
 
+        <!-- ios -->
+    <platform name="ios">
+       <config-file target="config.xml" parent="/*">
+           <feature name="EmailComposer">
+               <param name="ios-package" value="EmailComposer" />
+           </feature>
+       </config-file>
+
+       <header-file src="src/ios/EmailComposer.h" />
+       <source-file src="src/ios/EmailComposer.m" />
+   </platform>
+
 </plugin>
