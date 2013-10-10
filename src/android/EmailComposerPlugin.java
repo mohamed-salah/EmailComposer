@@ -25,7 +25,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.api.LOG;
 
-public class EmailComposerPlugin extends CordovaPlugin {
+public class EmailComposer extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
