@@ -1,12 +1,18 @@
-# EmailComposer with attachments handling
+# EmailComposer plugin for Phonegap 3 (Android, Ios) #
 
-- Add the EmailComposer.java to your project (use the correct package, or change it in the file)
+This Plugin is inspired from EmailComposer plugin
 
-- Place the EmailComposer.js file somewhere in your www folder, and include it from your html.
+[here](https://github.com/GalCohen/EmailComposer-phonegap-plugin)
 
-- Add the plugin to your config.xml file in this way:
+## Adding the Plugin to your project ##
 
-	<plugin name="EmailComposer" value="org.apache.cordova.EmailComposer"/>
+for phonegap 3 (CLI)
+
+phonegap local plugin add https://github.com/mohamed-salah/EmailComposer.git
+
+## Using the plugin ##
+
+<pre>
 
 Callable interface:
 
@@ -31,3 +37,6 @@ or
 **Example**
 
 	window.plugins.emailComposer.showEmailComposerWithCallback(null,"Look at this photo","Take a look at <b>this<b/>:",["example@email.com", "johndoe@email.org"],[],[],true,["_complete_path/image.jpg", "_other_complete_path/file.zip"]);
+
+
+</pre>
