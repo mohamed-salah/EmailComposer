@@ -50,7 +50,7 @@
     MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
     mailComposer.mailComposeDelegate = self;
     
-	// set subject
+    // set subject
     @try {
         NSString* subject = [parameters objectForKey:@"subject"];
         if (subject) {
@@ -72,8 +72,8 @@
     @catch (NSException *exception) {
         NSLog(@"EmailComposer - Cannot set body; error: %@", exception);
     }
-	
-	// Set recipients
+    
+    // Set recipients
     @try {
         NSArray* toRecipientsArray = [parameters objectForKey:@"toRecipients"];
         if(toRecipientsArray) {
@@ -104,7 +104,7 @@
         NSLog(@"EmailComposer - Cannot set BCC recipients; error: %@", exception);
     }
 
-	@try {
+    @try {
         int counter = 1;
         NSArray *attachmentPaths = [parameters objectForKey:@"attachments"];
         if (attachmentPaths) {
@@ -115,7 +115,7 @@
                     counter++;
                 }
                 @catch (NSException *exception) {
-                    DLog(@"Cannot attach file at path %@; error: %@", path, exception);
+                    NSLog(@"Cannot attach file at path %@; error: %@", path, exception);
                 }
             }
         }
@@ -129,7 +129,7 @@
     } else {
         [self returnWithCode:RETURN_CODE_EMAIL_NOTSENT];
     }
-    [mailComposer release];
+    //[mailComposer release];
 }
 
 
@@ -137,26 +137,26 @@
 // Proceeds to update the message field with the result of the operation.
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {   
     // Notifies users about errors associated with the interface
-	int webviewResult = 0;
+    int webviewResult = 0;
     
     switch (result) {
         case MFMailComposeResultCancelled:
-			webviewResult = RETURN_CODE_EMAIL_CANCELLED;
-            break;
+        webviewResult = RETURN_CODE_EMAIL_CANCELLED;
+        break;
         case MFMailComposeResultSaved:
-			webviewResult = RETURN_CODE_EMAIL_SAVED;
-            break;
+        webviewResult = RETURN_CODE_EMAIL_SAVED;
+        break;
         case MFMailComposeResultSent:
-			webviewResult =RETURN_CODE_EMAIL_SENT;
-            break;
+        webviewResult =RETURN_CODE_EMAIL_SENT;
+        break;
         case MFMailComposeResultFailed:
-            webviewResult = RETURN_CODE_EMAIL_FAILED;
-            break;
+        webviewResult = RETURN_CODE_EMAIL_FAILED;
+        break;
         default:
-			webviewResult = RETURN_CODE_EMAIL_NOTSENT;
-            break;
+        webviewResult = RETURN_CODE_EMAIL_NOTSENT;
+        break;
     }
-	
+    
     [controller dismissModalViewControllerAnimated:YES];
     [self returnWithCode:webviewResult];
 }
@@ -172,11 +172,11 @@
         return nil;
     CFStringRef pathExtension, type;
     // Get the UTI from the file's extension
-    pathExtension = (CFStringRef)extension;
+    pathExtension = (__bridge CFStringRef)extension;
     type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension, NULL);
     
     // Converting UTI to a mime type
-   return (NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType);
+    return (__bridge NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType);
 }
 
 @end
