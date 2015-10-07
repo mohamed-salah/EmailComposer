@@ -1,0 +1,24 @@
+{
+  "name": "com-badrit-emailcomposer",
+  "version": "0.2.0",
+  "description": "Cordova EmailComposer Plugin",
+  "cordova": {
+    "id": "com-badrit-emailcomposer",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamed-salah/EmailComposer"
+  },
+  "keywords": [
+    "cordova",
+    "emailcomposer",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT"
+}
